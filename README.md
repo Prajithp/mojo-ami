@@ -8,6 +8,12 @@
     This module provides a dependable, event-based interface to the asterisk manager interface. http://www.voip-info.org/wiki/view/Asterisk+manager+API
     This is done with Mojo::IoLoop
 
+### TODO
+   * Automatic login support whenever it connects to AMI
+   * Update documentation.
+   * Add support for blocking connections as well.
+   * 
+
 ### SYNOPSIS
 ```perl
     my $ast = AMI->new(user => 'admin', secret => 'redhat');
