@@ -1,4 +1,4 @@
-package MOJO::AMI;
+package Mojo::AMI;
 
 use strict;
 use warnings;
