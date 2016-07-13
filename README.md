@@ -9,8 +9,7 @@
     This is done with Mojo::IoLoop
 
 ### SYNOPSIS
-  #### Non-blocking
-    ```perl
+```perl
     my $ast = AMI->new(user => 'admin', secret => 'redhat');
     
     my $loop = Mojo::IOLoop->delay(
@@ -24,4 +23,29 @@
             print Dumper $response2;
         }
     )->wait;
-    ```
+```
+### Constructor
+#### new
+```perl
+    my $astman = Mojo::AMI->new(
+        host   => 'localhost',
+        user   => 'username',
+        secret => 'test',
+    );
+```
+#### Supported args are:
+```perl
+    host       Asterisk host.  Defaults to '127.0.0.1'.
+    user       Manager user.
+    secret     Manager secret.
+```
+### Actions
+#### execute
+```perl
+    $astman->execute({ Action => 'QueueStatus', 'Async' => '1'}, $delay->begin);
+```
+Sends a command to asterisk.
+
+The command will wait for the specific response from asterisk (identified with an ActionID). Otherwise it returns immediately.
+Returns a hash or hash-ref on success (depending on wantarray), undef on timeout.
+
